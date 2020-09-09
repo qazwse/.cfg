@@ -19,13 +19,13 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Fira Mono" :size 24))
+(setq doom-font (font-spec :family "Source Code Variable" :size 24))
 (setq doom-variable-pitch-font (font-spec :family "Fira Sans" :size 24))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'modus-vivendi)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -33,7 +33,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 (setq-default
  delete-by-moving-to-trash t          ; this seems useful
@@ -45,6 +45,9 @@
 
 (delete-selection-mode 1)            ; replace visual selections with inserts
 (global-subword-mode 1)              ; iterate through camelcase
+
+;; vterm customizations
+(setq vterm-shell 'fish)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
