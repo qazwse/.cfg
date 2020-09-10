@@ -1,5 +1,8 @@
 .cfg Readme -*- mode: org -*-
 
+#+TITLE: .cfg Readme
+#+DATE: <2020-09-09 Wed>
+
 * .cfg Readme
 A repository for storing my Linux configurations, based on the work found [[https://www.atlassian.com/git/tutorials/dotfiles][here.]] Allows one to use a git repository set to work in $HOME, makes it easy to play around and distrohop.
 
