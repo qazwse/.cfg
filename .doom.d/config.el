@@ -45,9 +45,11 @@
 
 (delete-selection-mode 1)            ; replace visual selections with inserts
 (global-subword-mode 1)              ; iterate through camelcase
+(setq evil-move-cursor-back nil)  ; keep the cursor in place when we exit insert mode
 
 ;; vterm customizations
 (setq vterm-shell 'fish)
+
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
