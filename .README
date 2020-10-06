@@ -1,0 +1,36 @@
+.cfg Readme -*- mode: org -*-
+
+#+TITLE: .cfg Readme
+#+DATE: <2020-09-09 Wed>
+
+* .cfg Readme
+A repository for storing my Linux configurations, based on the work found [[https://www.atlassian.com/git/tutorials/dotfiles][here.]] Allows one to use a git repository set to work in $HOME, makes it easy to play around and distrohop.
+
+I have two branches set up, one for Windows (WSL, technically) and one for more generic Linux distros. I could probably have them be the same, but they'll probably need a few subtle tweaks, so it's easier to have them seperate.
+
+Currently, they're mostly being used for Emacs configurations. We'll see what the future holds.
+
+TODO: Think about how this works with magit - probably more of a hassle than anything.
+
+* Instructions
+Because referring to the original website is kind of a hassle. I'll eventually move this into it's own fish script, but for now and org doc will do.
+
+We need an alias to work with our config. Well, we don't need an alias, but it will save a lot of keystrokes.
+
+#+BEGIN_SRC fish
+alias -s config "/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+#+END_SRC
+
+Avoid weird recursion problems with this one simple trick, and ignore the files we don't track (don't want whole home directory appearing when we check status)
+
+#+BEGIN_SRC fish
+echo ".cfg" >> $HOME/.gitignore
+config config --local status.showUntrackedFiles no
+#+END_SRC
+
+Clone my configuration, and checkout
+
+#+BEGIN_SRC fish
+git clone --bare https://github.com/qazwse/.cfg $HOME/.cfg
+config checkout
+#+END_SRC
