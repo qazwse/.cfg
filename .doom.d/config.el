@@ -19,8 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Fira Code" :size 12))
-(setq doom-variable-pitch-font (font-spec :family "Calibri" :size 12))
+(setq doom-font (font-spec :family "Fira Code" :size 30))
+(setq doom-variable-pitch-font (font-spec :family "Fira Sans" :size 30))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -39,13 +39,17 @@
  delete-by-moving-to-trash t          ; this seems useful
  uniquify-buffer-name-style 'forward) ; have unique buffer names
 
-(setq undo-limit 80000000            ; Raise undo limit to 80Mb
-      evil-want-fine-undo t          ; Have granular edits while in insert mode
-      auto-save-default t)           ; Pretty self-explanatory
+(setq undo-limit 80000000             ; Raise undo limit to 80Mb
+      evil-want-fine-undo t           ; Have granular edits while in insert mode
+      auto-save-default t)            ; Pretty self-explanatory
 
-(delete-selection-mode 1)            ; replace visual selections with inserts
-(global-subword-mode 1)              ; iterate through camelcase
-(setq evil-move-cursor-back nil)  ; keep the cursor in place when we exit insert mode
+(delete-selection-mode 1)             ; replace visual selections with inserts
+(global-subword-mode 1)               ; iterate through camelcase
+(setq evil-move-cursor-back nil)      ; keep the cursor in place when we exit insert mode
+
+(after! evil
+  (map! :n "j" 'evil-next-visual-line
+        :n "k" 'evil-previous-visual-line)) ; I like moving around using j/k sometimes, and this makes me sense to me
 
 ;; vterm customizations
 (setq vterm-shell 'fish)

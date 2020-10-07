@@ -1,11 +1,8 @@
-.cfg Readme -*- mode: org -*-
+-*- mode: org -*-
 
-<<<<<<< HEAD
 #+TITLE: .cfg Readme
 #+DATE: <2020-09-09 Wed>
 
-=======
->>>>>>> bb269e0... Add readme!
 * .cfg Readme
 A repository for storing my Linux configurations, based on the work found [[https://www.atlassian.com/git/tutorials/dotfiles][here.]] Allows one to use a git repository set to work in $HOME, makes it easy to play around and distrohop.
 
@@ -24,16 +21,16 @@ We need an alias to work with our config. Well, we don't need an alias, but it w
 alias -s config "/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 #+END_SRC
 
-Avoid weird recursion problems with this one simple trick, and ignore the files we don't track (don't want whole home directory appearing when we check status)
-
-#+BEGIN_SRC fish
-echo ".cfg" >> $HOME/.gitignore
-config config --local status.showUntrackedFiles no
-#+END_SRC
-
 Clone my configuration, and checkout
 
 #+BEGIN_SRC fish
 git clone --bare https://github.com/qazwse/.cfg $HOME/.cfg
 config checkout
+#+END_SRC
+
+Avoid weird recursion problems with this one simple trick, and ignore the files we don't track (don't want whole home directory appearing when we check status)
+
+#+BEGIN_SRC fish
+echo ".cfg" >> $HOME/.gitignore
+config config --local status.showUntrackedFiles no
 #+END_SRC
