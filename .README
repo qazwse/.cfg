@@ -34,3 +34,10 @@ Avoid weird recursion problems with this one simple trick, and ignore the files 
 echo ".cfg" >> $HOME/.gitignore
 config config --local status.showUntrackedFiles no
 #+END_SRC
+
+Clone the initial Doom Emacs repo, since Doom is fantastic~ Also install its requirements.
+#+BEGIN_SRC fish
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+dnf install ripgrep fd-find
+./$HOME/.emacs.d/bin/doom install
+#+END_SRC fish
